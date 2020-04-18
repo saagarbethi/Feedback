@@ -19,4 +19,15 @@ public class User {
 	
 	private String userid;
 	
+	private String password;
+	
+	public User(String first_name,String last_name,String middle_name,String mobile,String emailid,String userid) {
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.middle_name = middle_name;
+		this.mobile = mobile;
+		this.emailid = emailid;
+		this.userid = userid;
+	}
+	
 }
