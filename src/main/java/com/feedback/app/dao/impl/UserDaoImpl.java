@@ -66,8 +66,8 @@ public class UserDaoImpl implements UserDao {
 		String sql = "select * from client_reg where upper(userid) = ? and password = ?";
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql, new Object[] { userid.toUpperCase(),password });
 		if (rows.size() > 0) {
-			return new User((String) rows.get(0).get("FIRST_NAME"), (String) rows.get(0).get("MIDDLE_NAME"),
-					(String) rows.get(0).get("LAST_NAME"), (String) rows.get(0).get("MOBILE"),
+			return new User((String) rows.get(0).get("FIRST_NAME"), (String) rows.get(0).get("LAST_NAME"),
+					(String) rows.get(0).get("MIDDLE_NAME"), (String) rows.get(0).get("MOBILE"),
 					(String) rows.get(0).get("EMAILID"), (String) rows.get(0).get("USERID"));
 
 		} else {

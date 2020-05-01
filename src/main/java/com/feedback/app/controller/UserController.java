@@ -48,7 +48,7 @@ public class UserController {
 	
 	@PostMapping(path="/user/save",consumes = "application/json")
 	public ResponseEntity<Object> save(@RequestBody User users){
-		user.save(users);
+		int save = user.save(users);
 		return new ResponseEntity<>(message.success(users.getUserid()),HttpStatus.OK);
 	}
 	
@@ -56,7 +56,7 @@ public class UserController {
 	public ResponseEntity<Object> login(@RequestBody User loginuser){
 		User users = user.login(loginuser.getUserid(), loginuser.getPassword());
 		if(users==null) {
-			return new ResponseEntity<>(new EmptyJson(),HttpStatus.OK);
+			return new ResponseEntity<>(new EmptyJson(),HttpStatus.NO_CONTENT);
 		}else {
 			return new ResponseEntity<>(users,HttpStatus.OK);
 		}
